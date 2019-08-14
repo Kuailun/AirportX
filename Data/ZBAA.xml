@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AirportX>
+    <Description ICAO="ZBAA" Version="0.1" Author="YuChen Chai"/>
+    <Drawing>
+        <GeneralInfo>
+            <center_x>500</center_x>
+            <center_y>500</center_y>
+            <x1>0</x1>
+            <y1>0</y1>
+            <x2>1000</x2>
+            <y2>1000</y2>
+        </GeneralInfo>
+        <DetailInfo>
+            <Apron>
+                <Polygons>
+                    <Polygon x="1" y="1"/>
+                    <Polygon x="1" y="100"/>
+                    <Polygon x="5" y="100"/>
+                    <Polygon x="5" y="100"/>
+                </Polygons>
+                <Polygons>
+                    <Polygon x="100" y="1"/>
+                    <Polygon x="100" y="100"/>
+                    <Polygon x="105" y="100"/>
+                    <Polygon x="105" y="100"/>
+                </Polygons>
+                <Circles>
+                    <Circle x="200" y="200" radius="5" unit="Meter"/>
+                </Circles>
+                <Lines>
+                    <Line x1="400" y1="0" x2="500" y2="100" width="10" unit="Meter"/>
+                </Lines>
+                <Arcs>
+                    <Arc x="500" y="500" start="15" end="90" width="10" unit="Meter"/>
+                </Arcs>
+                <Texts>
+                    <Text x="300" y="300" size="9" colorR="255" colorG="155" colorB="255">"15"</Text>
+                </Texts>
+            </Apron>
+        </DetailInfo>
+
+    </Drawing>
+
+
+</AirportX>
