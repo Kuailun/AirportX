@@ -5,12 +5,13 @@
         <GeneralInfo>
             <center_x>500</center_x>
             <center_y>500</center_y>
-            <x1>0</x1>
-            <y1>0</y1>
-            <x2>1000</x2>
-            <y2>1000</y2>
         </GeneralInfo>
         <DetailInfo>
+            <Runways>
+                <Runway Name="12R" >
+                    <Position x="1" y="1" heading="119" length="150" width="12"/>
+                </Runway>
+            </Runways>
             <Apron>
                 <Polygons>
                     <Polygon x="1" y="1"/>
@@ -38,8 +39,5 @@
                 </Texts>
             </Apron>
         </DetailInfo>
-
     </Drawing>
-
-
 </AirportX>
