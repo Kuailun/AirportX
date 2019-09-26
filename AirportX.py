@@ -4,6 +4,7 @@ from PyQt5.QtCore import Qt, QRect,QPoint
 from PyQt5.QtWidgets import QMenu
 from Utils import PublicData as PD
 from Utils.Logging import Get_Logger
+from Utils import AirportX_Functions as af
 
 
 
@@ -59,6 +60,7 @@ class AirportX(QMainWindow):
         """
         self.colors['Background']=QColor(0,0,0)
         self.colors['runway']=QColor(220,220,220)
+        self.colors['runwayName']=QColor(255,0,0)
 
     def SetData(self,js):
         """
@@ -159,24 +161,32 @@ class AirportX(QMainWindow):
     def paintEvent(self, event):
         qp = QPainter()
         qp.begin(self)
-        qp.translate(self.viewOffsetFixed[0]+self.viewOffset[0],self.viewOffsetFixed[1]+self.viewOffset[1])
+
+        qp.save()
+        qp.setBrush(QColor(255,0,0))
+        qp.drawRect(100,200,30,40)
+        qp.restore()
+
+        qp.save()
+        qp.rotate(20)
+        qp.translate(-100,-100)
+        qp.setBrush(QColor(255,255,255))
+        qp.drawRect(500,500,200,100)
+
+        qp.save()
+        qp.setBrush(QColor(255, 0, 0))
+        qp.translate(100, 100)
+        qp.drawRect(400, 400, 20, 30)
+        qp.restore()
+        qp.restore()
+        # qp.translate(self.viewOffsetFixed[0]+self.viewOffset[0],self.viewOffsetFixed[1]+self.viewOffset[1])
+        #
+        #
+        # if not(self.mapdata=={}):
+        #     Runways=self.mapdata['Drawing']['DetailInfo']['Runways']
+        #     af.Draw_Runways(Runways,qp,self.colors)
 
 
-        if not(self.mapdata=={}):
-            Runways=self.mapdata['Drawing']['DetailInfo']['Runways']
-            for i in range(len(Runways)):
-                qp.setRenderHint(QPainter.Antialiasing)
-                qp.setBrush(self.colors['runway'])
-                runway=Runways[i]
-                x=runway['Data'][0]
-                y=runway['Data'][1]-runway['Data'][4]/2
-                length=runway['Data'][3]
-                width=runway['Data'][4]
-                qp.translate(x, y + runway['Data'][4] / 2)
-                qp.rotate(runway['Data'][2]-90)
-                qp.translate(-x,-y-runway['Data'][4]/2)
-                # qp.rotate(runway['Data'][2])
-                qp.drawRect(x,y,length,width)
                 # qp.end()
             # qp.begin(self)
             # qp.drawLine(100,25,10,25)
@@ -200,7 +210,8 @@ class AirportX(QMainWindow):
             #             qp.drawArc(arcs[j][0], arcs[j][1], arcs[j][2], arcs[j][3], 90*16,90*16)
             #         pass
             #     pass
-            qp.end()
+
+        qp.end()
         pass
     def mousePressEvent(self,event):
         """

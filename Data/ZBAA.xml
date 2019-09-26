@@ -10,6 +10,7 @@
             <Runways>
                 <Runway Name="12R" >
                     <Position x="1" y="1" heading="119" length="150" width="12"/>
+                    <Name x="10" y="5" heading="119">"12R"</Name>
                 </Runway>
             </Runways>
             <Apron>
